@@ -98,13 +98,14 @@ input[type=radio]{accent-color:#0f7d8c;width:18px;height:18px;margin:0}
         <div style="display: flex; flex-wrap: wrap; gap: 24px 36px; align-items: center">
           <div style="overflow-x: auto; width: 100%">
             <div style="width: max-content; min-width: 100%; box-sizing: border-box; border: 1px solid #dfe3e8; border-radius: 6px">
-              <div style="display: grid; grid-template-columns: 150px 200px minmax(0, 1fr); align-items: center; height: 36px; border-bottom: 1px solid #dfe3e8; background: #f7f7f8; color: #5b6572; border-radius: 5px 5px 0 0">
+              <div style="display: grid; grid-template-columns: 150px 200px 280px minmax(0, 1fr); align-items: center; height: 36px; border-bottom: 1px solid #dfe3e8; background: #f7f7f8; color: #5b6572; border-radius: 5px 5px 0 0">
                 <div style="padding: 0 18px; border-right: 1px solid #dfe3e8; height: 100%; display: flex; align-items: center">Канал</div>
                 <div style="padding: 0 18px; border-right: 1px solid #dfe3e8; height: 100%; display: flex; align-items: center">Лимит на кампанию</div>
-                <div style="padding: 0 18px; display: flex; align-items: center; gap: 12px; white-space: nowrap">Параметры запуска <span style="font-size: 13px">· интенсивность действует в рамках окна коммуникации</span></div>
+                <div style="padding: 0 18px; border-right: 1px solid #dfe3e8; height: 100%; display: flex; align-items: center">Окно коммуникации</div>
+                <div style="padding: 0 18px; display: flex; align-items: center; gap: 10px; white-space: nowrap">Интенсивность <span style="font-size: 13px">· в рамках окна коммуникации</span></div>
               </div>
               <sc-for list="{{channels}}" as="ch" hint-placeholder-count="3">
-                <div style="display: grid; grid-template-columns: 150px 200px minmax(0, 1fr); align-items: center; padding: 7px 0; border-top: {{ch.borderTop}}">
+                <div style="display: grid; grid-template-columns: 150px 200px 280px minmax(0, 1fr); align-items: center; padding: 7px 0; border-top: {{ch.borderTop}}">
                   <div style="padding: 0 18px">
                     <span style="display: inline-flex; align-items: center; gap: 8px; font-weight: 500; white-space: nowrap">
                       <span style="width: 24px; height: 24px; border-radius: 6px; background: {{ch.tileBg}}; color: {{ch.tileColor}}; display: inline-flex; align-items: center; justify-content: center; flex: none">
@@ -121,9 +122,7 @@ input[type=radio]{accent-color:#0f7d8c;width:18px;height:18px;margin:0}
                       <sc-if value="{{ch.showUnit}}" hint-placeholder-val="{{false}}"><span style="color: #5b6572; font-size: 15px">шт</span></sc-if>
                     </label>
                   </div>
-                  <div style="padding: 0 18px; display: flex; align-items: center; gap: 18px">
-                    <div style="display: flex; align-items: center; gap: 10px; padding-right: 18px">
-                      <span style="font-weight: 400; color: #1c2430; white-space: nowrap">Окно коммуникации</span>
+                    <div style="padding: 0 18px; display: flex; align-items: center; gap: 10px">
                       <span style="display: flex; align-items: center; border: 1px solid #6b7785; border-radius: 4px; height: 24px; padding: 0 6px; width: 100px; box-sizing: border-box; background: #ffffff">
                         <input type="text" aria-label="Начало окна" value="{{ch.from}}" onChange="{{ch.setFrom}}" style="border: 0; outline: 0; padding: 0; flex: 1; min-width: 0; background: transparent; font-size: 14px">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#55606d" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5h4"></path></svg>
@@ -134,14 +133,12 @@ input[type=radio]{accent-color:#0f7d8c;width:18px;height:18px;margin:0}
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#55606d" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5h4"></path></svg>
                       </span>
                     </div>
-                    <div style="flex: none">
+                    <div style="padding: 0 18px">
                       <div role="radiogroup" aria-label="Интенсивность" style="display: flex; align-items: center; gap: 14px; white-space: nowrap">
-                        <span style="font-weight: 400; color: #1c2430">Интенсивность</span>
                         <label style="display: flex; align-items: center; gap: 8px; min-height: 28px"><input type="radio" name="{{ch.radioName}}" checked="{{ch.isNow}}" onChange="{{ch.setNow}}"> Сразу</label>
                         <label style="display: flex; align-items: center; gap: 8px; min-height: 28px; margin-left: 10px"><input type="radio" name="{{ch.radioName}}" checked="{{ch.isEven}}" onChange="{{ch.setEven}}"> Равномерно</label>
                       </div>
                     </div>
-                  </div>
                 </div>
               </sc-for>
             </div>
